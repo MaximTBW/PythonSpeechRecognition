@@ -40,9 +40,11 @@ while 1==1:
         Команда - выражение для выхода
         """
         print('Match witch cases of comands...')
-        if(re.search(".*внимание.{0,7}команда(.{0,4}бот.*)?.{0,7}(выкл|откл).*", text.lower()).group() == text.lower()):
-            exit()
-
+        try:
+            if(re.search(".*внимание.{0,7}команда(.{0,4}бот.*)?.{0,7}(выкл|откл).*", text.lower()).group() == text.lower()):
+                exit()
+        except:
+            pass
         """
         Пробегаем по все выражениям. Если выражение будет верно,
         будет вызван subprocess(консоль) с параметрами,
@@ -50,6 +52,7 @@ while 1==1:
         """
         print('Match witch cases of json...')
         for key in variants:
+            print("  "+key)
             try:
                 if(re.search(key.lower(), text.lower()).group() == text.lower()):
                     print('Run process')
