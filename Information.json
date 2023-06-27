@@ -1,3 +1,17 @@
 {
-	".*(Запус|Включ).*проводник.*": "explorer.exe A:\\"
+	"(.{0,10})(Запус|Включ)(.{0,10})проводник(( )?.{0,10})": ["subproc","explorer.exe"],
+	"(.{0,10})(Запус|Включ)(.{0,10})(первый|1) диск(( )?.{0,10})": ["subproc","explorer.exe C:\\"],
+	"тестирование (один|1)": ["start","","explorer.exe"],
+	"тестирование (два|2)": ["comand","explorer.exe"],
+	"тестирование (три|3)": ["startparam","","explorer.exe","C:\\Windows"],
+	"тестирование (четыре|4)": ["startparam","C:\\Windows","explorer.exe","D:\\games"],
+	"тестирование (пять|5)": ["start","C:\\Windows\\","explorer.exe"],
+	"(.{0,10})(Запус|Включ)(.{0,10})youtube(.{0,10})":
+		["startparam",
+		 "C:\\Users\\Сия\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs",
+		 "Yandex.lnk",
+		 "youtube.com"],
+	"(.{0,10})Добро(.{0,10})утр(.{0,10})": ["gensay","Доброе утро"],
+	"(.{0,10})Прив(.{0,10})": ["gensay","Приветики"],
+	"Тестирование сна": ["comand","%windir%\\System32\\rundll32.exe powrprof.dll,SetSuspendState 0,1,0"]
 }
